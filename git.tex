@@ -5,8 +5,21 @@
     \item \TT{git commit -\:-amend} \hspace{12pt}{\footnotesize Replaces last commit to include the updates \& changes the commit msg}
     \item\TT{git branch -m <name>}  \hspace{12pt}{\footnotesize Rename the current branch}
 \end{enumerate}
-\par \TT{git merge <master> <branchName>} 
 
+
+\subsection{How to merge?}
+\begin{tabularx}{\textwidth}{llX}
+01&\TT{git merge <master> <branch>} & merge <branch> to master\\
+02&\TT{git merge <branch1> <branch2>}& merges:  <branch2> to <branch1>\\
+\end{tabularx}
+
+\subsubsection{merge to master}
+\begin{tabularx}{\textwidth}{llX}
+01&\TT{git branch}& Lists branches\\
+02&\TT{git checkout master}& switch to master\\
+03&\TT{git merge <branch>}&  merge <branch> to master\\
+04&\TT{git log}& \\
+\end{tabularx}
 \begin{lstlisting}
 git branch      Lists branches
 git merge <branch1> <branch2>       <branch2> to <branch1>
@@ -16,8 +29,14 @@ git ref log
 git branch -d <branch2>     gitDelete branch <branch2
 git push origin 
 \end{lstlisting}
-
-
+\subsection{How to delete?}
+\subsubsection{del a branch}
+\begin{tabularx}{\textwidth}{llX}
+01&\TT{git branch}& Lists branches\\
+02&\TT{git checkout master}& switch to master\\
+03&\TT{git branch -d <branch>}& Deletes branch\\
+04&\TT{git push origin}&
+\end{tabularx}
 \begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
 \TT{p}                          &     (going back to HEAD) \\
 \TT{git reset --hard HEAD$\wedge$}  &     (going back to the commit before HEAD) \\
