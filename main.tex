@@ -1,0 +1,46 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[letterpaper,10pt,oneside]{article}
+\usepackage{_sty/BNart,_sty/BNsh}
+\usepackage{_sty/domestic}
+%==============================
+%   *** Domestic-Tunings ***
+%==============================
+\graphicspath{{./util/img/}{./util/Fig/}{./util/pdf/}}
+%==============================
+%       *** Title ***
+%==============================
+\title{Git}
+\author{Behzad Nouri}
+\date{\small \today}
+\input{_sty/addMetaDat}
+\begin{document}
+\bstctlcite{IEEEexample:BSTcontrol} %Keep it right here. Adds controls in bib file into effect
+\input{_sty/addTitle}
+%==============================
+%   *** Body of Document ***
+%==============================
+\input{git}
+%\input{gitHowTo}
+
+\np
+%==============================
+%      *** Appendix ***
+%==============================
+\appendix
+\input{app_basics}\np
+\input{app_storyFlow}\np
+\input{app_ignore}\np
+\input{app_github_webPg}
+%==============================
+%     *** References ***
+%==============================
+%\bibliography{bib/Ref}
+
+
+%\input{EX/Ex.tex}
+\end{document}
+
+
+
+
+\section{Appendix: Example workflows} \label{app:1}

@@ -1,0 +1,410 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is shared for fair use without any (implied/assumed) warranty.  %%
+%% There is no warranty of merchantability or applicability for a particular %% 
+%% purpose.        (C)2022, Behzad NOURI, bn@ieee.org                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Version: 2022/09/30 -v0930-01
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{_sty/BNsh}[2022/09/30, Main Short-Hands]
+
+%% MUST have set:
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\bs}[1]{\mbox{$\boldsymbol{#1}$}}
+\newcommand{\crv}[1]{\overset{\lower3pt\hbox{$\smash{\scriptscriptstyle\boldsymbol{\frown}}$}}{#1}}
+\newcommand{\T}{\mkern-3mu\raisebox{3pt}{$^\intercal$}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%      --- Frequently Used Commands and Symbols ---      %%%%%%
+%%%%%       Or as I referred to as "Short-Hand Writings"      %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\rem}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%      In MATH mode $~$:      %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% $Bold$:
+%\newcommand{\mat}[1]{\mathbf{#1}}
+%\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+%\newcommand{\bs}[1]{\mbox{$\boldsymbol{#1}$}}
+
+%% $Formatted$:
+\newcommand{\op}[1]{\operatorname{#1}} 
+\newcommand{\mathat}[1]{\mathbf{\hat{#1}}}
+\newcommand{\matbar}[1]{\mathbf{\bar{#1}}}
+% \newcommand{\crv}[1]{\overset{\lower3pt\hbox{$\smash{\scriptscriptstyle\boldsymbol{\frown}}$}}{#1}} 
+
+%---------------------------------------
+% (), {}, [], <>, |.|, ||.||
+%---------------------------------------
+%% $Brackets$, $parenthesis$, $etc$:
+\newcommand{\brk}[1]{\left(#1\right)}          %(.)
+\newcommand{\set}[1]{\left\{#1\right\}}        %{.}
+\newcommand{\mm}[1]{\left[#1\right]}           %[.]
+\newcommand{\seq}[1]{\left<#1\right>}          %<.>
+\newcommand{\abs}[1]{\lvert#1\rvert}           %|.|
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert} %||.||
+
+%% $Symbols$:
+%% \H by-default-is \Gamma
+\newcommand{\defeq}{\buildrel def \over =}
+\newcommand{\trieq}{\buildrel \Delta \over =}
+\newcommand{\btrieq}{\buildrel \bigtriangleup \over =}
+
+\newcommand{\EPS}{\boldsymbol{\mathlarger{{\varepsilon}}}}
+\newcommand{\Err}{\mathcal{E}_\mathit{rr}}
+\newcommand{\PHI}{\boldsymbol{\Phi}}
+\def\TO{{~}$\longrightarrow${~}}
+\def\to{{~}$\rightarrow${~}}
+\def\OT{{~}$\longleftarrow${~}}
+\def\ot{{~}$\leftarrow${~}}
+
+%% $Operators$:
+\newcommand{\Real}[1]{\Re\mathfrak{e}\brk{#1}}
+\newcommand{\rnd}[2]{\dfrac{\partial#1}{\partial#2}}
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+
+%% $Dot$
+\newcommand{\mdot}[1]{\bm{\dot{\mathbf{#1}}}}
+\newcommand{\tdot}[1]{\accentset{\mbox{\large\bfseries .}}{#1}}
+\newcommand{\ttdot}[1]{\accentset{\mbox{\large\bfseries ..}}{#1}}
+
+%% $Matrix transpose$
+\newcommand{\p}{^\prime}  %For the first derivative
+
+\newcommand{\Trans}{\mkern-3mu\raisebox{3pt}{$^\mathrm{T}$}}
+%\newcommand{\T}    {\mkern-3mu\raisebox{3pt}{$^\intercal$}}
+
+\newcommand{\Hes}{\mkern-3mu\raisebox{3pt}{$^{\ast\intercal}$}}
+\renewcommand{\H}{\mkern-3mu\raisebox{3pt}{$^\mathrm{H}$}}
+
+\newcommand{\NegT}{\mkern-3mu\raisebox{1.5pt}{$^{-\!\mathrm{T}}$}}
+\newcommand{\F}{{\raisebox{2pt}{$\!^{\ast\intercal}$}}}
+
+%% $Sets$  
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\LHS}{\mathbb{C}^{-}}  %Open left-half plane in complex s-plane
+\newcommand{\RHS}{\mathbb{C}^{+}}  %Open right-half plane in complex s-plane
+
+%% $Formatting$:
+\newcommand{\bk}{\!\!}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%      In TEXT mode:      %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Sec}[1]{\mbox{Section~\ref{#1}}}
+\newcommand{\App}[1]{\mbox{Appendix~\ref{#1}}}
+\newcommand{\Fig}[1]{\mbox{Figure~\ref{#1}}}
+\newcommand{\Table}[1]{\mbox{Table~\ref{#1}}}
+
+\newcommand{\Thm}[1]{\mbox{Theorem~\ref{#1}}}
+\newcommand{\Lem}[1]{\mbox{Lemma~\ref{#1}}}
+\newcommand{\Cor}[1]{\mbox{Corollary~\ref{#1}}}
+\newcommand{\Algo}[1]{\mbox{Algorithm~\ref{#1}}}
+\newcommand{\Flow}[1]{\mbox{Flowchart~\ref{#1}}}
+
+\newcommand{\ie}{\mbox{i.e.,~}}   % Must always be followed by a comma "," as "i.e.,". You may also need comma before based on context.
+\newcommand{\eg}{\mbox{e.g.}}     % usually followed by "," may be exceptions based on context.
+
+\newcommand{\REG}[1]{\mbox{#1\textsuperscript{\textregistered}}}
+\newcommand{\TM}[1]{\mbox{#1\textsuperscript{TM}}}
+\newcommand{\mycopyright}{\mbox{\raisebox{0pt}{\scalebox{1.1}{\copyright}}{}$\:$\the\year{}~}}  %%Or use \textcopyright
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%      Access to the Bibliography      %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Use bibtex file name without .bib extension
+\newcommand{\refdir}[1]{D:/TT/_Bib/#1}
+\newcommand{\ieeebib}{\refdir{IEEEabrv},\refdir{BNabrv},\refdir{BNref}}
+\newcommand{\mybib}{bib/IEEEabrv,bib/SBNabrv,bib/SBN}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%     Additional (added 20220509)      %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{verbatimbox}
+\def\nl{\par\noindent}
+\def\np{\par\vfill\clearpage}
+\def\secline{\begin{center}{\color{gray}\rule{.3\textwidth}{1pt}\raisebox{-5pt}{~*~*~*~}\rule{.3\textwidth}{1pt}}\end{center}}
+
+\newcommand{\TT}[1]{{\color{blue}\texttt{#1}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%      Define Colors      %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{Pink}{rgb}{1,0.75,0.8}
+\definecolor{Gray}{rgb}{0.85,0.85,0.85}
+\definecolor{lightgreen}{rgb}{0.5,1,0.34}
+
+\definecolor{myblue}{RGB}{29,57,127}
+\definecolor{mygray}{rgb}{0.85, 0.85, 0.85} %Do not move this from here!
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% ----------------------------------------- BNsh2.sty ------------------------------------------ %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%          Boxing & Framing            %%%%%%%
+%%%%%%       Using: tcolorbox environment   %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%===================================================================
+%% Puts operand-text in: - gray-box, 
+%%                       - \textwidth, 
+%%                       - Not bordered (framed)
+%% Usage:  
+%% \begin{gbox}\centering  ...  \end{gbox}
+%%===================================================================
+\newtcolorbox{gbox}{colback=mygray, 
+                    colframe=mygray, boxrule=-0pt, arc=1mm, frame hidden,  enhanced,  %% boxrule=-0pt, frame hidden --> No-boxed 
+                    width=\textwidth,                                                 %% Default: \textwidth
+                    grow to right by=-1cm, grow to left by=-1cm, 
+                    left=6pt, right=6pt, top=4pt, bottom=4pt,                         %% Margins inside the box
+                    box align=center, valign=center, %%halign=center,                 %% Alignments inside the box
+                    boxsep=0pt, breakable, center}
+
+%%===================================================================
+%% Puts operand-text in: - gray-box, 
+%%                       - \textwidth, 
+%%                       - bordered (framed)
+%% Usage:     
+%%                       - \begin{gboxf}\centering  ...  \end{gboxf}
+%%===================================================================
+\newtcolorbox{gboxf}{%
+                        colback=mygray, 
+                        colframe=black, boxrule=0.5pt, arc=1mm, %frame hidden, enhanced %% boxrule=-0pt, frame hidden --> No-boxed 
+                        width=\textwidth,                                               %% Default: \textwidth
+                        grow to right by=-1cm, grow to left by=-1cm, 
+                        left=6pt, right=6pt, top=4pt, bottom=4pt,                       %% Margins inside the box
+                        box align=center, valign=center, %%halign=center,               %% Alignments inside the box
+                        boxsep=0pt, breakable, center}
+
+
+%%===================================================================
+%%  Inline version of gbox 
+%%                       - \textwidth, 
+%%                       - bordered (framed)
+%%  Usage:               
+%%                       - \gboxinline{ ... }
+%%===================================================================
+\newcommand{\gboxinline}[1]{\colorbox{mygray}{\color{black}\bfseries#1}}
+%% 
+
+
+%%===================================================================
+%%  See this as an equivalent of gbox (minor differences)
+%%                       - \textwidth, 
+%%                       - bordered (framed)
+%% Usage: 
+%%                       - \begin{SBN} ... \end{SBN}
+%%===================================================================
+\newtcolorbox{SBN}{%
+                      colback=gray!25,  %mygray
+                      colframe=gray!25, boxrule=-0pt, arc=1mm, frame hidden, enhanced, %% boxrule=-0pt, frame hidden --> No-boxed     
+                      width=0.75\textwidth,                                            %% Default: \textwidth
+                      grow to right by=0mm, grow to left by=0mm, 
+                      left=6pt, right=6pt, top=4pt, bottom=4pt,                        %% Margins inside the box
+                      box align=center, valign=center, %halign=center,                 %% Alignments inside the box
+                      boxsep=0pt, 
+                      breakable, center
+                  }
+
+
+
+%%===================================================================
+%%  Two Parallel lines keeping the operand text block in between 
+%%                       - \textwidth, 
+%%                       - bordered (framed)
+%%  Usage:               
+%%                       - \begin{MBOX} ... \end{MBOX}
+%%===================================================================
+%%(5) :
+\newtcolorbox{MBOX}{%
+                      colback=mygray,
+	                  colframe=black, arc=0pt, outer arc=0pt, frame hidden,%enhanced,-->Do not add enhance to MBOX
+                      width=(\textwidth-6\parindent), grow to right by=0mm, grow to left by=0mm,  %% Default: \textwidth
+                      left=6pt, right=6pt, top=6pt, bottom=6pt,                                   %% Margins inside the box
+                      boxrule=-0pt, box align=center, valign=center, halign=center,               %% Alignments inside the box
+                      boxsep=-3pt,                    
+                      breakable, center, 
+                      leftrule=-1px, bottomrule=0.5pt, rightrule=-1px,, toprule=0.5pt,               %% Top & Bottom Lines
+                      % nobeforeafter, 
+                      % beforeafter skip=12pt,
+                    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%      Highlighting (Marker)        %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%===================================================================
+%%  Highlights the background for its operand text
+%%  HL is an environment
+%%  Usage:               
+%%                       - \begin{HL} ... \end{HL}
+%%===================================================================
+\newtcolorbox{HL}{colback=yellow!50, enhanced, frame hidden, boxsep=0pt, breakable, arc=1mm}
+
+%%===================================================================
+%%  To color its text,  useful for long text
+%%  Usage:               
+%%                      - {SBNx ...}
+%% Advantage is possibility of disabling several of coloring at once:
+%% by commenting in     - \newcommand{\SBNx}{}                    
+%%===================================================================
+\newcommand{\SBNb}{\color[rgb]{0,0,1}}        %\newcommand{\SBNb}{} 
+\newcommand{\SBNg}{\color[rgb]{0,0.58,0}}     %\newcommand{\SBNg}{} 
+\newcommand{\SBNr}{\color[rgb]{0.65,0.16,0}}  %\newcommand{\SBNr}{}
+
+
+\usepackage{stackengine}
+%%=============================================================================
+%% \usepackage{stackengine} provides
+%% Usage: \commands{overlay image}{base image}{V-offset}{H-offset}
+%% E.g.:  \bottominset{*}{O}{}{}
+%%        \topinset{*}{O}{1pt}{}
+%%=============================================================================
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%      Time-Management     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%ToDO:
+\def\todo{\scalebox{1.5}{$\square$}}
+\def\done{\bottominset{\scalebox{1.5}{\ding{51}}}{\todo}{}{1pt}}
+
+\def\task{\scalebox{1.5}{\color{mygray}$\blacksquare$}}
+\def\well{\bottominset{\scalebox{1.5}{\ding{51}}}{\task}{}{1pt}}
+
+\newcommand{\due}[1]{\hspace*{12pt}\emph{\textcolor{blue}{(#1)}}}
+
+\def\cmark{\textcolor{myblue}{\scalebox{1.5}{\ding{51}}}}  % V
+\def\xmark{\textcolor{myblue}{\scalebox{1.5}{\ding{55}}}}  % X
+
+\newcommand{\uppercmark}[1]{\stackon[-.4ex]{#1}{\cmark}}   
+\newcommand{\upperxmark}[1]{\stackon[-.4ex]{#1}{\xmark}}
+
+%%Address:
+\def\mail {\raisebox{-3pt}{\scalebox{1.9}{\ding{41}}}} 
+\def\call {\raisebox{-1pt}{\scalebox{1.5}{\ding{38}}}} 
+\def\tel  {\raisebox{-3pt}{\scalebox{1.9}{\ding{37}}}}
+\def\phone{\raisebox{-1pt}{\scalebox{1.25}{\faPhone}}}
+
+\newcommand{\SYM}[1]{\csname#1\endcsname}
+%%Fun
+\def\coffee{\raisebox{-1pt}{\scalebox{1.5}{\SYM{Coffeecup}}}}  %\SYM{Cofeecup} -> \Coffeecup
+\def\rest  {\raisebox{-1pt}{\scalebox{1.2}{\SYM{faCoffee}}}}   %\SYM{faCoffee} -> \faCoffee
+\def\book  {\raisebox{-1pt}{{\color{gray}\scalebox{1}{\SYM{faBook}}}}}
+\def\read  {\book}
+\def\bed   {\raisebox{-1pt}{\scalebox{1.2}{\SYM{faBed}}}}      %\SYM{faBed} -> \faBed
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%          Special Symbols          %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \ONE  \TWO  \THREE   \FOUR   ...   \NINE 
+%%   1     2      3       4     ...     9   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\PRN}[1]{\raisebox{-1pt}{\scalebox{1.5}{#1}}}
+%\newcommand{\shoo}[1]{#1};  %{}
+\def\ONEF  {\PRN{\ding{182}}}  
+\def\TWOF  {\PRN{\ding{183}}}
+\def\THREEF{\PRN{\ding{184}}}
+\def\FOURF {\PRN{\ding{185}}}
+\def\FIVEF {\PRN{\ding{186}}}
+\def\SIXF  {\PRN{\ding{187}}}
+\def\SEVENF{\PRN{\ding{188}}}
+\def\EIGHTF{\PRN{\ding{189}}}
+\def\NINEF {\PRN{\ding{190}}}
+\def\TENF  {\PRN{\ding{191}}}
+
+\def\ONE   {\PRN{\ding{192}}}
+\def\TWO   {\PRN{\ding{193}}}
+\def\THREE {\PRN{\ding{194}}}
+\def\FOUR  {\PRN{\ding{195}}}
+\def\FIVE  {\PRN{\ding{196}}}
+\def\SIX   {\PRN{\ding{197}}}
+\def\SEVEN {\PRN{\ding{198}}}
+\def\EIGHT {\PRN{\ding{199}}}
+\def\NINE  {\PRN{\ding{200}}}
+\def\TEN   {\PRN{\ding{201}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%      Question-&-Answers      %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{Qcnt}   %Used for Questions in Labs, etc.
+\setcounter{Qcnt}{0}
+\newcommand\QUES[1]{%
+                    \stepcounter{Qnr}
+                    \setcounter{equation}{0}
+                    \nl#1~\arabic{Qnr}:
+                    }%\vspace{-10pt}}
+\def\FQED{\hspace*{\fill}~\ding{110} \par}
+\def\BQED{\hspace*{\fill}~\ding{111} \par}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% ---------------------------------------- AddPDF.sty ------------------------------------------ %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Insert PDF pages to Doc %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\invisiblesection[1]{%
+	\refstepcounter{section}%
+	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+	\sectionmark{#1}}
+%%=============================================================================
+%% Usage:
+%%       1. Syntax: - \includepdf[pages=1-last]{path/filename}
+%%        
+%%       2. Syntax: - \mypdfpage{Title}{file}    
+%%                     Inserts single-page pdf, Title goes-> ToC
+%%            E.g.: - \mypdfpage{Transistor circuit}{./pdf/ckt}   % ckt.pdf is in ./pdf/
+%%
+%%       3. Syntax: - \mypdf{Title}{File}        
+%%                    Inserts multi-page pdf,   Title goes-> ToC
+%%            E.g.: - \mypdf{Laplace Transform}{./pdf/laplace}    % laplace.pdf is in ./pdf/
+%%
+%%       4. Syntax: - \mypdfB{Title}{File}        
+%%                    Inserts multi-page pdf, starting from pg.2,   Title goes-> ToC
+%%            E.g.: - \mypdfB{Course Outline}{./pdf/outline}      % outline.pdf is in ./pdf/
+%        
+%        
+%%=============================================================================
+\newcommand{\mypdfpage}[2]%   2. \mypdfpage{Title}{file}  %% Inserts single-page pdf, Title goes-> ToC
+{   \np\thispagestyle{empty}
+    \includepdf[]{}pdf[pages=1, pagecommand={\invisiblesection{#1}}]{#2}
+}
+
+\newcommand{\mypdf}[2]%       3. \mypdf{Title}{File}   %% Inserts multi-page pdf,   Title goes-> ToC
+{	\np\pagestyle{empty}
+	\includepdf[pages=1, pagecommand={\invisiblesection{#1}}]{#2}
+	\includepdf[pages=2-last]{#2}
+}
+
+\newcommand{\mypdfB}[2]%      4. \mypdfB{Title}{File}  %% Inserts multi-page pdf, starting from pg.2,   Title goes-> ToC
+{   \np\pagestyle{empty}
+	\includepdf[pages=2, pagecommand={\invisiblesection{#1}}]{#2}
+	\includepdf[pages=3-last]{#2}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\endinput      %%%%% <-EoF: LaTeX will ignore anything after this line.
+%%%%%%%%%%%%%%%%%%%%

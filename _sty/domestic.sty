@@ -1,0 +1,27 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{_sty/domestic}[2022/09/30, main control style]
+\newif\ifCondenced    
+
+\Condencedtrue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  Margins Condensation  %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifCondenced
+    \usepackage{titlesec}
+    \titlespacing*{\section}      {0pt}{2ex plus 0ex minus 0ex}{0ex plus 0ex}
+    \titlespacing*{\subsection}   {0pt}{2ex plus 0ex minus 0ex}{0ex plus 0ex minus 0ex}
+    \titlespacing*{\subsubsection}{0pt}{2ex plus 0ex minus 0ex}{0ex plus 0ex minus 0ex}
+    \titlespacing*{\paragraph}    {0pt}{2ex plus 0ex minus 0ex}{0ex plus 0ex minus 0ex}
+    \titlespacing*{\subparagraph} {0pt}{2ex plus 0ex minus 0ex}{0ex plus 0ex minus 0ex}
+    
+    \titleformat*{\section}      {\large\bfseries}
+    \titleformat*{\subsection}   {\normalsize\bfseries}
+    \titleformat*{\subsubsection}{\normalsize\bfseries}
+    \titleformat*{\paragraph}    {\normalsize\bfseries}
+    \titleformat*{\subparagraph} {\normalsize\bfseries}
+\fi
+
+\renewcommand{\arraystretch}{1}
+%%\end{comment}
+
+\endinput 

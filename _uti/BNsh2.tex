@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%      Horizontal Lines      %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\HLg}[1]{\textcolor[rgb]{0.4,0.4,0.4}{\ara{\rule{#1\textwidth}{0.5pt}}}}
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%      New Counters      %%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{Fcnt} %FigNr
+\setcounter{Fcnt}{1} 
+\newcommand{\FigNr}{\arabic{Fcnt}\@} 
+\newcommand{\FigNrAdd}{\stepcounter{FigNr}}
+\newcommand{\FigNrAuto}{\arabic{Fcnt}\@\stepcounter{FigNr}}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%      Man-Made Proof Environment     %%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% The "amsthm" and "IEEEtrantools" packages provide their own proof environments and related blows and vessels; 
+% %% the fallowing is a "man" made one
+
+% \def\PROOF{{\raggedright{\textbf{\textit{Proof:~~}}}}}
+% \def\FQED{\hspace*{\fill}~\ding{110} \par}
+% \def\BQED{\hspace*{\fill}~\ding{111} \par}
+
+% \def\SOL{{\raggedright{\textbf{\textit{Solution:~}}}}}  
+% \def\ANS{{\raggedright{\textbf{\textit{Answer:~}}}}} 
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%   Complementary Stuff      %%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand{\DOT}{\raisebox{-1pt}{\Large \textbullet}~}
+% \newcommand{\CIR}{\raisebox{-1pt}{\Large \textopenbullet}~}
+% \newcommand{\SQR}{\raisebox{-1pt}{$\square$}~}        %amsmath package
+% \newcommand{\SQRF}{\raisebox{-1pt}{$\blacksquare$}~}  %amssymb package
+% \newcommand{\TRI}{\raisebox{-1pt}{\large $\rhd$}~} %amsmath package
+% \newcommand{\TRIF}{\raisebox{-1pt}{\large$\blacktriangleright$}~}  %amssymb package
+% \newcommand{\STRF}{\raisebox{-1pt}{$\bigstar$}~}  %amssymb package
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%      Course related Symbols & Characters:      %%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \def\MAT{~\raisebox{-3pt}{\includegraphics[scale=0.025]{./sx/img/Matlab-Logo}}~}
+% \def\SIM{~\colorbox[rgb]{0.75,0.75,0.75}{\large \reflectbox{\ding{50}}}~}
+% \def\PEN{~\colorbox[rgb]{0.75,0.75,0.75}{\uwave{\large \reflectbox{\ding{46}}}}~}
+% \def\HAND{~\colorbox[rgb]{0.75,0.75,0.75}{\uwave{\Large \ding{45}}}~}
+% \def\TYPE{~~\colorbox[rgb]{0.75,0.75,0.75}{\uwave{~~\Large \ding{45}}~~\textcolor[rgb]{1,1,1}{\texttt{(Type!)}}}~~}
+
+

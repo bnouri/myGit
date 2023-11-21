@@ -1,0 +1,18 @@
+\newif\ifAddMetaData
+
+\AddMetaDatatrue
+%===============================
+%  *** Add PDF meta data: ***
+%===============================
+\ifAddMetaData
+    \makeatletter % changes the catcode of @ to 11
+    \hypersetup{  %Add document properties in PDF using LaTeX:
+        pdftitle=\@title,%
+        pdfauthor=\@author,%
+        pdfsubject={Technical},%
+        pdfkeywords={},%
+        pdfproducer={LaTeX},%
+        pdfcreator={pdfLaTeX}
+    }
+    \makeatother % changes the catcode of @ back to 12
+\fi

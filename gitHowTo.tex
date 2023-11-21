@@ -1,0 +1,20 @@
+\np
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%       Section           %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{KnowHow}\label{sec:howto}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Merge a branch to the mater and delete it} \due{T}
+\nl\textbf{-~} Given there is a branch, e.g. "hotfix".
+\nl\textbf{-~} It may include several commits after being checked out from the master.
+\nl\textbf{-~} Merge this branch to the master. It includes, in the master, every development done in the branch. 
+\nl\textbf{-~} If done  with the branch, delete it.
+\begin{enumerate}\packed
+\item Given git is at branch "hotfix"
+\item \TT{git commit -a -m 'msg'}  \hspace{12pt} First, commit the changes to the branch "hotfix"
+\item \TT{git checkout master}  \hspace{12pt} Go to master branch
+\item \TT{git merge hotfix}
+\item \TT{git branch -d hotfix} \hspace{12pt} Deleted branch hotfix
+\end{enumerate}
+Ref:~~\href{https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging}{3.2 Git Branching - Basic Branching and Merging}
