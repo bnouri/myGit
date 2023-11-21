@@ -1,8 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fast-Ref}
 \begin{tabularx}{\textwidth}{llX}
-01&\TT{git commit -am 'msg'}& \\
-02&\TT{git commit -\:-amend}& Replaces last commit to include the updates \& changes the commit msg\\
+&\TT{git add *} & stage all changed files\\ 
+&\TT{git commit -am 'msg'}& \\
+&\TT{git commit -\:-amend}& Replaces last commit to include the updates \& changes the commit msg\\
+\end{tabularx}
+
+\subsection{unstage}
+\begin{tabularx}{\textwidth}{llX}
+01& \TT{git restore -\,-staged  <file1, file2>} & Un-stages files 1,2\\
 \end{tabularx}
 
 \subsection{merge branches}
