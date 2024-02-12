@@ -1,0 +1,432 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fast-Ref}
+
+%******************************
+\subsection{Commit}
+\begin{tabularx}{\textwidth}{lX}
+    \TT{git add .}            & stages all the newly changed/editted files        \\
+    \TT{git commit -m 'msg'}  & commits the staged files using the message: 'msg' \\
+    \TT{git commit -am 'msg'} & equivalent the above two-commands                 \\
+\end{tabularx}
+
+%******************************
+\subsection{Unstage}
+\begin{tabularx}{\textwidth}{llX}
+    \TT{git restore \aa{}staged  <file1, file2>} & Un-stages files 1,2; short form is \TT{git restore -S .} \\
+    \TT{git restore \aa{}staged .}               & Un-stages all the staged files                           \\
+
+    \TT{git rm -\,-cached <file>}                & Un-stages  \texttt{<file>}                               \\
+    \TT{git rm -rf \aa{}cached .}                & Un-stages all staged files~~\hl{+}                       \\
+    \TT{git resset <file>}                       & Un-stages  \texttt{<file>}                               \\
+    \TT{git resset .}                            & Un-stages all the staged files
+\end{tabularx}
+
+
+%******************************
+\subsection{Amend}
+\begin{tabularx}{\textwidth}{lX}
+    \TT{git commit -\:-amend -m 'newmsg'} & Replaces last commit to include the updates \& changes the commit msg                \\
+    \TT{git add . }                       &                                                                                      \\
+    \TT{git commit -\:-amend -\:-no-edit} & commits the staged files BUT using '-\:-no-edit' retains the previous commit message \\
+    \TT{git log -\:-oneline}              & shows commit history in a shorter form as:                                           \\
+                                          & e.g.: \texttt{f425059 (HEAD -> master, origin/master) msg}                           \\
+                                          & \texttt{8f184d5 first commit}                                                        \\
+    \TT{git revert 8f184d5}               & reverts to a previous commit with commit ID: 8f184d5,                                \\
+                                          & This creates a new commit with the changes from the previous commit.                 \\
+\end{tabularx}
+
+%******************************
+\subsection{Codespace}
+To edit the files directly in GitHub (online), go to the intended repo. in GitHub, press ".". This opens the file in vscode.
+You can make changes to the code and push them to the remote repo.
+
+%******************************
+\subsection{Stash}
+To save your work without adding them to the staging area and creating a new commit. This allows you to save your progress and restore it whenever you need to. \par
+\begin{tabularx}{\textwidth}{lX}
+    \TT{git stash save new-idea} & saves your current progress by providing a name and stashing it.           \\
+                                 & e.g.: \texttt{Saved working directory and index state On master: new-idea} \\
+    \TT{git stash list}          & view your stash list and note the corresponding index to retrieve it.      \\
+                                 & e.g.: \texttt{stash\@\{0\}: On master: new-idea}                           \\
+                                 & stash of "new ideas" is saved at index 0.                                  \\
+    \TT{git stash apply 0}       & retrives the stash of "new-idea" that was already saved at index 0         \\
+    \TT{git branch -M main}      & renames your default branch name.                                          \\
+                                 & In this case, it renames "master" to "main".                               \\
+\end{tabularx}
+
+%******************************
+\subsection{Log}
+\begin{tabularx}{\textwidth}{lX}
+    \TT{git reflog}                                 & Views the history of checkouts                                     \\
+    \TT{git log -\:-graph -\:-decorate -\:-oneline} & \texttt{git log} shows a detailes history of all the commits.      \\
+                                                    & displays the changes made in multiple branches and how they merge. \\
+                                                    & To make it more readable.                                          \\
+\end{tabularx}
+
+
+\secline
+\subsection{Unstage}
+\begin{tabularx}{\textwidth}{llX}
+    01 & \TT{git restore -\,-staged  <file1, file2>} & Un-stages files 1,2 \\
+\end{tabularx}
+
+\subsection{Merge branches}
+\begin{tabularx}{\textwidth}{llX}
+    01 & \TT{git merge <master> <branch>}   & merge <branch> to master        \\
+    02 & \TT{git merge <branch1> <branch2>} & merges:  <branch2> to <branch1> \\
+\end{tabularx}
+
+\subsection{Merge to master}
+\begin{tabularx}{\textwidth}{llX}
+    01 & \TT{git branch}          & Lists branches           \\
+    02 & \TT{git checkout master} & switch to master         \\
+    03 & \TT{git merge <branch>}  & merge <branch> to master \\
+    04 & \TT{git log}             &                          \\
+\end{tabularx}
+
+\subsection{Del a branch}
+\begin{tabularx}{\textwidth}{llX}
+    01 & \TT{git branch}             & Lists branches   \\
+    02 & \TT{git checkout master}    & switch to master \\
+    03 & \TT{git branch -d <branch>} & Deletes branch   \\
+    04 & \TT{git push origin}        &
+\end{tabularx}
+
+\subsection{Rename a branch}
+\begin{tabularx}{\textwidth}{llX}
+    01 & \TT{git branch -m <name>} & rename the current branch to <name>
+\end{tabularx}
+
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{p}                                    & (going back to HEAD)                   \\
+        \TT{git reset -\:-hard HEAD$\wedge$}      & (going back to the commit before HEAD) \\
+        \TT{git reset -\:-hard HEAD}$\thicksim$ 1 & (equivalent to "$\wedge$")             \\
+        %\TT{git reset -\:-hard HEAD$\tilde$2} &    (going back two commits before HEAD)
+    \end{tabularx}\end{flushleft}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{First-Time Git Setup}
+\noindent First-time set-up \& configuration for a new Git installation.
+%
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git config -\:-global user.name <FirstName LastName>}
+         & Drop "\texttt{-\:-global}" option from these commands \\
+        \TT{git config -\:-global user.email <email@example.com>}
+         & to recognize you only locally.
+    \end{tabularx}\end{flushleft}
+
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git config -\:-global core.editor <emacs>}
+         & To use a different text editor (from system default) for git. \\
+        %
+        \TT{git config -\:-list -\:-show-origin}
+         & Shows settings and where they are coming from                 \\
+        %
+        \TT{git config -\:-list}
+         & Checking the Settings that are in effect.
+    \end{tabularx}\end{flushleft}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{remote repo}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git config user.name}  & Shows who it is configured to     \\
+        \TT{git config user.email} & Shows the email associated to git
+    \end{tabularx}\end{flushleft}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{GUI}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{gitk} & Opens a visual commit browser (some GUI)
+    \end{tabularx}\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{help}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git -\,-version}         & Checks installed Git's version \\
+        \TT{git help~|~git -\,-help} & Shows git help                 \\
+        \TT{git help <command>}      &                                \\  Gives help about <command>
+        \TT{git <command> -\,-help}  &
+    \end{tabularx}\end{flushleft}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Status}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git status}        & Checks the current state of repo \\
+        \TT{git status <file>} & Checks state of specific file
+    \end{tabularx}\end{flushleft}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{log}
+\begin{tabularx}{\textwidth}{l|X}
+    \TT{git reflog}                                 & Views the history of checkouts                                     \\
+    \TT{git log}                                    & Shows a detailed log of commit history                             \\
+    \TT{git log -\,-oneline}                        & Shows only <commentsID>~commit-comments                            \\
+    \TT{git shortlog}                               & For a shorter log of commit history                                \\
+    \TT{git shortlog -s}                            & Creates even much shorter log                                      \\
+    \TT{git shortlog -1}                            & Shows only the last 'one' commit                                   \\
+    \TT{git log -\:-graph -\:-decorate -\:-oneline} & \texttt{git log} shows a detailes history of all the commits.      \\
+                                                    & displays the changes made in multiple branches and how they merge. \\
+                                                    & To make it more readable.
+\end{tabularx}
+
+
+\begin{enumerate}\packed
+    \item {\color{blue}\emph{-1}}:
+    \item {\color{blue}\emph{-p}}: shows the line diff for each commit
+    \item {\color{blue}\emph{-p -\:-word-diff}}: shows the word diff for each commit
+    \item {\color{blue}\emph{-\:-stat}}: shows stats instead of diff details
+    \item {\color{blue}\emph{-\:-name-status}}: shows a simpler version of stat
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Create repo.}
+Two ways to create a repository:
+\subsection{\texttt{git init}}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git init <dir>} & Create new (empty) / reinitialize existing repo in <dir>  \\
+        \TT{git init}       & Executing this in project-directory <dir> makes it a repo \\
+    \end{tabularx}\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texttt{clone}}
+%
+\TT{>> git clone <repo-url>}~~~~It is the URL to a remote git repository <repo>\\
+1. Creates a local \texttt{<repo>} folder \& Initializes it as a git repository \\
+3. Copies (pull-downs) all data from \texttt{repo-url} to the local folder\\
+4. Automatically configures <repo> to point to the \texttt{<repo-url>}\\
+5. \texttt{Checkout} to the local working directory\\
+Once making change-\&-committing files, one can \texttt{git push} the changes to the remote repository at <repo-url>
+\smallskip
+\nl\TT{>> git clone <repo-url> <folder-name>}~~~~Same as above but local repo can be <folder-Name> (different from the remote one)
+\smallskip
+\nl\TT{>> git clone <repo1> <repo2>}~~~Copies a local repo-folder to a new local folder
+
+\nl \textbf{Delete:} To remove git control delete ``.git'' from working director.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Staging}
+Staged-files are ready to be committed
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texttt{add}}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git add  <file1 file2 file3>}        & Adds files 1-\:-3 to staging area          \\
+        \TT{git add *.txt}                       & stages all text files                      \\
+        \TT{git add .}                           & stages all text files                      \\
+        \TT{git add -A} | \TT{git add -\,-a[ll]} & Adds evergitything in and beneath          \\
+        \TT{git add -\,-u}                       & Adds modified files (but not the new ones)
+    \end{tabularx}\end{flushleft}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texttt{.gitignore}}
+A hidden file (\texttt{.gitignore.txt}) in the root of repository specifies the files we do not need to keep track of their changes (e.g. *.exe files).  Note that the files already tracked by Git are not affected. To remove all files from the repository and adding them back according to the rules in .gitignore:
+\nl Use: \TT{git rm -rf -\,-cached .}  \TO~~\TT{git add .}     \hfill (see Appendix~\ref{app:ignore-cmd})
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Delete}
+\subsection{\texttt{rm}}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git rm <files>}
+         & Deletes from both the working directory and staged area.                               \\
+         & {\textcolor{red} {\textbf{Note:~}} you may lose all the changes (even the good ones):}
+    \end{tabularx}\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Commit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git commit}
+         & \small{Commits staged files \& asks for "comment message" to the commit}    \\
+        %
+        \TT{git commit -m {\footnotesize 'msg'}}
+         & \small{Commits \& (\TT{switch '-m'}) simultaneously adds a commit message}  \\
+        %
+        \TT{git commit -\:-all [|-a]}
+         & \small{Commits all the file in the staged area and asks for the comment}    \\
+        %
+        \TT{git commit -am 'msg'}
+         & \small{Adds modified files to stage, commits them, and adds commit message}
+    \end{tabularx}\end{flushleft}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Un-commit}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git commit -\:-amend -m "new-msg"}
+         & \small{Replaces the last commit of the current branch with the current staged files and replace its commit-msg with the "new-msg"; as last commit never happened.}                                              \\
+        \TT{git commit -\:-amend}
+         & \small{If no changes since last commit (e.g. immediately after a commit), This only changes the commit-msg. It opens the last commit-message in the editor for editing, any change overwrites last commit-msg.}
+    \end{tabularx}\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Reset Author}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git commit -\,-amend -\,-reset -\,-author}
+         & Amends commit author \& author date to the committer                                \\
+        \TT{git commit -\,-amend -\,-author=\footnotesize{"Author Name <email>"}}
+         & Amends commit author with given author name \& email, author date remains unchanged \\
+        \TT{git commit -\,-amend -\,-date={\footnotesize "2021-04-13T14:59:10"}}
+         & Amends the commit date (use ISO 8601 format for convenience)
+    \end{tabularx}\end{flushleft}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\texttt{branch}}
+To create, rename, delete, etc. of a branch
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git branch}                  & Shows (list) both local branches                                      \\
+        \TT{git branch <name>}           & Create a new (local) branch from the current Head (i.e. last commit)  \\
+        \TT{git branch -m <new-name>}    & Rename the current branch to "new-name"                               \\
+        \TT{git branch -d <name>}        & Delete this branch, This do not delete if branch has unmerged changes \\
+        \TT{git branch -D <branch-name>} & Force delete this branch, even if it has unmerged changes             \\
+        \TT{git branch -\,-a}            & Shows (list) both remote \& local tracking branches                   \\
+        \TT{git branch -\,-r}            & Shows remote tracking branches
+    \end{tabularx}\end{flushleft}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Branch - \texttt{checkout}}
+Takes to branch
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git checkout -b <name>}       & Creates a new-branch <name> from current Head \& then, checkout to it ~~~\hl{+} \\
+        \TT{git checkout master}          & Switches to branch "master" (github)                                            \\
+        \TT{git checkout <branch-name>}   & Switches to <branch-name>~~~\hl{+}                                              \\
+        \TT{git checkout <remote-branch>} &                                                                                 \\
+        \TT{git checkout -\,- <files>}    & Discards all the changes in <files> and restore it from the staged-version      \\
+        \TT{git checkout -\,-detach}      & Detaches Head from current branch                                               \\
+    \end{tabularx}\end{flushleft}
+\noindent "\textbf{checkout}" is the act of switching between different versions of a target entity.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\texttt{diff}: compare}
+Compares and shows differences between two instances.
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git diff}                                       & Compares and shows differences between Working-Directory vs. Staging-Area                                                  \\
+        \TT{git diff <file>}                                & Compares and shows modifications in current \texttt{file} in working-directory compared with \texttt{file} in staging-area \\
+        \TT{git diff -\,-staged}                            & Compares all the files in staging area with the last committed ones                                                        \\
+        \TT{git diff HEAD}                                  & Working-Area vs Last-Commit                                                                                                \\
+        \TT{git diff <branch-name>}                         & Shows diff between branch and working-directory                                                                            \\
+        \TT{git diff {\footnotesize <branch-1> <branch-2>}} & Shows diff between two branches
+    \end{tabularx}\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cleaning Working-Directory}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git clean -\,-n} & See what would be done by \texttt{git clean} command (Dry-Run of clean Operation)  \\
+        \TT{git clean -\,-1} & Interactively(?) removes un-tracked files from repository (Remove un-traced files)
+    \end{tabularx}\end{flushleft}
+
+\begin{verbatim}
+git restore -\:-staged .
+Or simply you can
+
+git restore -S .
+\end{verbatim}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\texttt{git reset}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Roll-back to a previous commit}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git reset -\,-hard HEAD} & Reverts working copy to the HEAD (most recent commit) \hl{+}
+    \end{tabularx}\end{flushleft}
+
+
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git reflog}           & Shows current commit history or use \TT{git log -\,-oneline}           \\
+        \TT{git reset <commitId>} & Resets master to the commit <commitID> (absolute address).             \\
+                                  & e.g., commit \hl{0766c05}3c0ea2035e90f504928f8df3c9363b8bd             \\
+        \TT{git reset current\~2} & Resets master to 2 commit before the current commit (relative address) \\
+    \end{tabularx}\end{flushleft}
+
+
+
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git reset}              &
+        \begin{enumerate}\packed
+            \item Removes everything from staging area
+            \item Resets every modified files in working-space to the latest commit
+            \item Brings them back to the working-area
+            \item[] {\textcolor{red} {\textbf{Note:~}} you may lose all the changes (even the good ones):}
+        \end{enumerate}                                            \\
+        \TT{git reset <files>}      & Un-stages "\texttt{<files>}"  from the indexing~\to~Reset to the latest commit~\to~Leaves them in the working-area \\
+        \TT{git reset path/to/file} & Un-stages files in "\texttt{path/to/file}" folder from the indexing, $\dots$ as above
+    \end{tabularx}\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texttt{git reset HEAD}}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git reset HEAD -\:- <files>}      & Un-stages "\texttt{<files>}"  from the index                                         \\
+        \TT{git reset HEAD -\,- path/to/file} & Un-stages files in "\texttt{path/to/file}" folder from the index                     \\
+        \TT{git reset HEAD -\,- .}
+                                              & Un-stages from the indexing all the files recursively and so forth to the subfolders
+    \end{tabularx}\end{flushleft}
+
+
+\section{Remote Repository}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Git-Hub}
+Given you have a GitHub account:
+\begin{enumerate}\packed
+    \item log-in to:~~\url{https://github.com}
+    \item Create a remote repository in \url{https://github.com/yourgit/proj.git}
+    \item \TT{git remote add origin https://github.../proj.git}
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Stash}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\href{https://opensource.com/article/21/4/git-stash}{A practical guide to using the git stash command}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Removing Remote URL}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git remote -v}        & Views the current remote                  \\
+        \TT{git remote rm}        & Removes a remote URL from your repository \\
+        \TT{git remote rm master} &
+    \end{tabularx}\end{flushleft}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pushing}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git push -\:-u origin master} & Sends local changes to remote repository (\emph{origin})
+    \end{tabularx}\end{flushleft}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pulling}
+\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
+        \TT{git pull origin master} & Pull-down any new changes (by collaborators etc.) from the remote repo.
+    \end{tabularx}\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example: working with git and GitHub}
+\begin{enumerate}\packed
+    \item \TT{mkdir D:/proj}
+    \item \TT{echo "\# main.tex" >> D:/proj/README.txt}
+    \item \TT{cd D:/proj}
+    \item \TT{GIT init}
+    \item \TT{git add README.txt}
+    \item \TT{git commit -m "first commit"}
+    \item \TT{remote add origin https://github.com/BehN/Git-Help-LaTeX.git}
+    \item \TT{git push -u origin master}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

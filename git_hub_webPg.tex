@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{How to clone my webpage from GitHub}
+\begin{enumerate}\packed
+\item[] \textbf{Copy the webpage's URL:}
+\item On GitHub~~$\longrightarrow$~~Go to Repositories
+\item Click on your ``personal Web-Page''
+\item Click on Clone/download
+\item Right-Click+Copy the web URL  (e.g.: \verb!''https://github.com/personalWebPage.git''!)
+%
+\medskip
+\item[] \textbf{Make a local repository:}
+\item Go to a directory as e.g.: ``D:\textbackslash code''
+\item Right-Click and select ``Git Bash here!''
+\item If the git installation (is new \&) has not been initialized yet take the next two steps. This is only done once for the git installation!
+\item[] \TT{git config --global user.name "John Doe"} 
+\item[] \TT{git config --global user.email you@email.com} 
+%
+\medskip
+\item[] \textbf{How to clone:}
+\item \TT{git clone https://github.com/personalWebPage.git}
+\nl {\footnotesize \textbf{N.B.:} As a result, the directory ``personalWebPage'' is created containing a copy of git-repository. This new directory is not a git repo yet???? really???}
+%
+\medskip
+\item[] \textbf{How to branch:}
+\item \texttt{ls}~$\longrightarrow$~\texttt{cd personalWebPage}
+\item \TT{checkout –b dev}  \hfill This makes \texttt{'dev'} which is a new local branch
+\item \TT{branch}           \hfill Shows existing branches, the active one is in green
+\item \TT{checkout dev}     \hfill switches git to new local branch \texttt{'dev'}
+%
+\medskip
+\item[] \textbf{How to stage and commit:}
+\noindent{(\footnotesize After applying required editing!)}
+\item \TT{git add -\,-a}
+\item \TT{git status} \hfill check status on branch \texttt{'dev'}
+\item \TT{git commit -m "your commit note goes here!"}
+%
+\medskip
+\item[] \textbf{How to push the branch to GitHub:}
+\item On GitHub~~$\longrightarrow$\TT{create pull request}
+\item \TT{push origin dev}   \hfill push \texttt{'dev'} to remote, creates if not exist
+\end{enumerate}

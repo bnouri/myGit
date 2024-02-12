@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{More about \texttt{.gitignore}}   \label{app:ignore-cmd}
+ In each line of this file, it specifies the (type of) files that we do not want to stage (never) and git should ignore when staging the files with \texttt{-\,-all} switch. 
+ \nl Useful "pattern format" to specify a group of files/folders.
+
+\begin{enumerate}\packed
+\item "\TT{blank line}": matches no files, so it can serve as a separator for readability
+\item "\TT{\#}": makes it a comment line; \TT{\textbackslash{}\#} for the patterns literally leading with \texttt{\#}  
+\item "\TT{!}": ignore but excluding the matching pattern; \TT{\textbackslash{}\!} for the patterns literally leading with \texttt{\!} 
+\item[] \texttt{e.g.:} \texttt{\!important!.txt}: ingores all \texttt{\!important*.*} except the ones with \texttt{.txt} extension
+\item An asterisk "\TT{*}" matches anything except "\TT{\textbackslash{}}".
+\item The character "\TT{?}" matches any one character except "\TT{\textbackslash{}}". 
+\item "\TT{**/<this>}": match \texttt{<this>} in all directories. \texttt{e.g.:}
+\begin{itemize}\packed
+\item "\texttt{**/foo}": matches file or folder "\texttt{foo}" anywhere.
+\item "\texttt{**/foo/bar}": matches file/folder "\texttt{bar}" in/under "\texttt{foo}" folder
+\end{itemize}
+\item "\TT{<folder>/**}": match everything inside "\texttt{<this>}" and all the paths underneath it
+\item "\TT{/**/}": matches zero or more directories. \texttt{e.g.:}
+\begin{itemize}\packed
+\item "\texttt{a/**/b}" matches "\texttt{a/b}", "\texttt{a/x/b}", "\texttt{a/x/y/b}" and so on.
+\end{itemize}
+\item "\TT{*}": Usage
+\begin{itemize}\packed
+\item "\texttt{hello.*}": matches any file or directory whose name begins with "\texttt{hello.}"
+\item "\texttt{/*}": matches any file or directory 
+\item "\texttt{/foo/*}": matches any file or directory inside "\texttt{/foo}" and folders underneath
+\end{itemize}
+\item The forward-slash "\TT{/}", all paths are relative from the \texttt{.gitignore} file location
+\begin{itemize}\packed
+\item "\texttt{a/**/b}" matches "\texttt{a/b}", "\texttt{a/x/b}", "\texttt{a/x/y/b}" and so on.
+\item "\texttt{foo/}": matches a directory "\texttt{foo}" and paths underneath it, but does not match a regular file or a symbolic link foo 
+\item "\texttt{doc/frotz/}": matches folder "\texttt{./doc/frotz}", but not "\texttt{a/doc/frotz}" directory
+\item "\texttt{frotz/}": matches both folders as "\texttt{./frotz/}" and "\texttt{a/frotz}" 
+\item "\texttt{doc/frotz}": and "\texttt{/doc/frotz}" have the same effect. A leading slash is not relevant when a middle slash in the pattern
+\item "\texttt{foo/*}": matches "\texttt{foo/test.json}" (a regular file), "\texttt{foo/bar}" (a directory), but it does not match \\
+"\texttt{foo/bar/hello.c}" (a regular file), as the asterisk in the pattern does not match "bar/hello.c" which has a slash in it
+\end{itemize}
+\item "\TT{a/**/b}": matches "\texttt{a/b}", "\texttt{a/x/b}", "\texttt{a/x/y/b}" and so on
+\end{enumerate}
+
+\nl\textbf{Example:}
+\begin{verbatim}
+    $ cat .gitignore
+    # exclude everything except directory foo/bar
+    /*
+    !/foo
+    /foo/*
+    !/foo/bar
+\end{verbatim}
+\begin{itemize}\packed
+\item[-] This exclude everything except folder "\texttt{foo/bar}"
+\item[-] "\texttt{/*}": Exclude everything (even files inside "\texttt{/foo}" and "\texttt{/foo/bar}"
+\item[-] "\texttt{!/foo/bar}": keeps the empty folder "\texttt{/foo/bar}"
+\end{itemize}
+ (note the /* - without the slash, the wildcard would also exclude everything within foo/bar):
+
+\vspace*{\baselineskip}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sample \texttt{cmd} file to Create \texttt{.gitignore}}
+This is a simple windows script (batch file) that can be used to generate a sample (and fairly complete) \texttt{.gitignore}. Both the following script  and \texttt{.gitignore} from it can be edited to customize it with your need.
+
+{\color{violet}
+\begin{singlespace}
+	\nl \underline{\texttt{GitIgnore.cmd:}}
+	{\footnotesize
+	\lstinputlisting{code/Mk_gitIgnore_v1218.cmd}
+	}
+\end{singlespace}
+}
