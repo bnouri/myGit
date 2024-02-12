@@ -10,6 +10,19 @@
 \end{tabularx}
 
 %******************************
+\subsection{Unstage}
+\begin{tabularx}{\textwidth}{llX}
+    \TT{git restore \aa{}staged  <file1, file2>} & Un-stages files 1,2; short form is \TT{git restore -S .} \\
+    \TT{git restore \aa{}staged .}               & Un-stages all the staged files                           \\
+
+    \TT{git rm -\,-cached <file>}                & Un-stages  \texttt{<file>}                               \\
+    \TT{git rm -rf \aa{}cached .}                & Un-stages all staged files~~\hl{+}                       \\
+    \TT{git resset <file>}                       & Un-stages  \texttt{<file>}                               \\
+    \TT{git resset .}                            & Un-stages all the staged files
+\end{tabularx}
+
+
+%******************************
 \subsection{Amend}
 \begin{tabularx}{\textwidth}{lX}
     \TT{git commit -\:-amend -m 'newmsg'} & Replaces last commit to include the updates \& changes the commit msg                \\
@@ -150,15 +163,15 @@ To save your work without adding them to the staging area and creating a new com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{log}
 \begin{tabularx}{\textwidth}{l|X}
-        \TT{git reflog}                                 & Views the history of checkouts                                     \\
-        \TT{git log}                                    & Shows a detailed log of commit history                             \\
-        \TT{git log -\,-oneline}                        & Shows only <commentsID>~commit-comments                            \\
-        \TT{git shortlog}                               & For a shorter log of commit history                                \\
-        \TT{git shortlog -s}                            & Creates even much shorter log                                      \\
-        \TT{git shortlog -1}                            & Shows only the last 'one' commit                                   \\
-        \TT{git log -\:-graph -\:-decorate -\:-oneline} & \texttt{git log} shows a detailes history of all the commits.      \\
-                                                        & displays the changes made in multiple branches and how they merge. \\
-                                                        & To make it more readable.
+    \TT{git reflog}                                 & Views the history of checkouts                                     \\
+    \TT{git log}                                    & Shows a detailed log of commit history                             \\
+    \TT{git log -\,-oneline}                        & Shows only <commentsID>~commit-comments                            \\
+    \TT{git shortlog}                               & For a shorter log of commit history                                \\
+    \TT{git shortlog -s}                            & Creates even much shorter log                                      \\
+    \TT{git shortlog -1}                            & Shows only the last 'one' commit                                   \\
+    \TT{git log -\:-graph -\:-decorate -\:-oneline} & \texttt{git log} shows a detailes history of all the commits.      \\
+                                                    & displays the changes made in multiple branches and how they merge. \\
+                                                    & To make it more readable.
 \end{tabularx}
 
 
@@ -216,18 +229,6 @@ Staged-files are ready to be committed
 A hidden file (\texttt{.gitignore.txt}) in the root of repository specifies the files we do not need to keep track of their changes (e.g. *.exe files).  Note that the files already tracked by Git are not affected. To remove all files from the repository and adding them back according to the rules in .gitignore:
 \nl Use: \TT{git rm -rf -\,-cached .}  \TO~~\TT{git add .}     \hfill (see Appendix~\ref{app:ignore-cmd})
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un-staging}
-
-\subsection{\texttt{restore}~/~\texttt{rm}}
-\begin{flushleft}\begin{tabularx}{\textwidth}{l|X}
-        \TT{git restore -\,-staged .}               & Un-stages all the staged files     \\
-        \TT{git restore -S .}                       & Shorten form                       \\
-        \TT{git rm -rf -\,-cached .}                & Un-stages all staged files~~\hl{+} \\
-        \TT{git restore -\,-staged  <file1, file2>} & Un-stages files 1,2                \\
-        \TT{git rm -\,-cached <file>}               & Un-stages  \texttt{<file>}         \\
-    \end{tabularx}\end{flushleft}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Delete}
