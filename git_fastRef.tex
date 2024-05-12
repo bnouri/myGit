@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fast-Ref}
+\subsection*{Log:}
+\begin{tabularx}{\textwidth}{lX}\hfill
+    \TT{git log \--{}oneline} & shows commit history in one line \\
+    \TT{git reflog}          & 
+\end{tabularx}
+
+%******************************
+\subsection*{Commit:}
+\begin{tabularx}{\textwidth}{lX}
+	\TT{git add {\bfseries {\bfseries .}}}            & stages all the newly changed/editted files        \\
+	\TT{git commit -m 'msg'}  & commits the staged files using the message: 'msg' \\
+	\TT{git commit -am 'msg'} & equivalent the above two-commands                 \\
+\end{tabularx}
+%
+%******************************
+\subsection*{Unstage:}
+\begin{tabularx}{\textwidth}{llX}
+	\TT{git restore \--{}staged  <file1, file2>} & Removes files 1,2 from the staging area (un-staging)  \\
+	\TT{git restore \--{}staged {\bfseries .}}               & Un-stages all the staged files. short form is \TT{git restore -S {\bfseries .}} \\
+	\TT{git rm \--{}cached <file>}               & Un-stages  \texttt{<file>} \\
+	\TT{git rm -rf \--{}cached {\bfseries .}}                & Un-stages all staged files~~\hl{+} \\
+	\TT{git resset HEAD \--{} <file>}            & Un-stages  \texttt{<file>}  \\
+	\TT{git resset HEAD \--{} {\bfseries .}}                            & Un-stages all the staged files
+\end{tabularx}
+
+
+%******************************
+\subsection*{Amend:}
+\begin{tabularx}{\textwidth}{lX}
+	\TT{git commit \--{}amend -m 'newmsg'} & Replaces last commit to include the updates \& changes the commit msg     \\
+	\TT{git add {\bfseries .} }  &  \\
+	\TT{git commit \--{}amend \--{}no-edit} & Commits the staged files. Using '\--{}no-edit' retains the previous commit message \\
+	\TT{git revert 8f184d5}               & Reverts to a previous commit with commit ID: f184d5, \\
+	                                      & This creates a new commit with the changes from the previous commit. \\
+\end{tabularx}
+%
+%
