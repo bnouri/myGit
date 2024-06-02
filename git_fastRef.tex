@@ -29,11 +29,17 @@
 %******************************
 \subsection*{Amend:}
 \begin{tabularx}{\textwidth}{lX}
-	\TT{git commit \--{}amend -m 'newmsg'} & Replaces last commit to include the updates \& changes the commit msg     \\
-	\TT{git add {\bfseries .} }  &  \\
+	\TT{git commit \--{}amend -m 'newmsg'} & Replaces last commit to include the updates \& changes the commit msg \\
 	\TT{git commit \--{}amend \--{}no-edit} & Commits the staged files. Using '\--{}no-edit' retains the previous commit message \\
-	\TT{git revert 8f184d5}               & Reverts to a previous commit with commit ID: f184d5, \\
+	\TT{git revert 8f184d5}               & Reverts to a previous commit with commit ID: 8f184d5, \\
 	                                      & This creates a new commit with the changes from the previous commit. \\
 \end{tabularx}
 %
 %
+%******************************
+\subsection*{Reset/Revert a file to a specific commit:}
+\begin{tabularx}{\textwidth}{lX}
+	\TT{git reflog} & Find Has for commit \\
+	\TT{git checkout c5f567 \--{} file1-to-restore file2-to-restore} &  revert to the commit "c5f567"  \\
+    \TT{git checkout c5f567$\sim$1 \--{} file1-to-restore file2-to-restore}& to revert to the commit before c5f567
+\end{tabularx}
