@@ -1,6 +1,7 @@
 %******************************
 \subsection{Codespace}
-To edit the files directly in GitHub (online), go to the intended repo. in GitHub, press ".". This opens the file in vscode.
+To edit the files directly in 
+ (online), go to the intended repo. in GitHub, press ".". This opens the file in vscode.
 You can make changes to the code and push them to the remote repo.
 
 %******************************
@@ -23,10 +24,11 @@ To save your work without adding them to the staging area and creating a new com
 	01 & \TT{git restore -\,-staged  <file1, file2>} & Un-stages files 1,2 \\
 \end{tabularx}
 
-\subsection{Merge branches}
+\section{Merge}
+\subsection{Merge two branches}
 \begin{tabularx}{\textwidth}{llX}
-	01 & \TT{git merge <master> <branch>}   & merge <branch> to master        \\
-	02 & \TT{git merge <branch1> <branch2>} & merges:  <branch2> to <branch1> \\
+	01 & \TT{git merge <branch1> <branch2>} & merges:  <branch2> to <branch1> \\
+	02 & \TT{git merge <master> <branch>}   & merge <branch> to master        \\
 \end{tabularx}
 
 \subsection{Merge to master}
@@ -37,7 +39,8 @@ To save your work without adding them to the staging area and creating a new com
 	04 & \TT{git log}             &                          \\
 \end{tabularx}
 
-\subsection{Del a branch}
+\section{Delete}
+\subsection{Delete a branch}
 \begin{tabularx}{\textwidth}{llX}
 	01 & \TT{git branch}             & Lists branches   \\
 	02 & \TT{git checkout master}    & switch to master \\
@@ -45,6 +48,7 @@ To save your work without adding them to the staging area and creating a new com
 	04 & \TT{git push origin}        &
 \end{tabularx}
 
+\section{Rename}
 \subsection{Rename a branch}
 \begin{tabularx}{\textwidth}{llX}
 	01 & \TT{git branch -m <name>} & rename the current branch to <name>
